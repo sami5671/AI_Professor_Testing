@@ -1,0 +1,37 @@
+▶️ How to Run Each Test for student 
+
+✅ SMOKE Test (small check)
+k6 run --out web-dashboard student_performance_dashboard.js --env TEST_TYPE=smoke
+
+✅ LOAD Test (1k → 2k → 4k VUs)
+k6 run --out web-dashboard student_performance_dashboard.js --env TEST_TYPE=load
+
+✅ STRESS Test (push beyond capacity)
+k6 run --out web-dashboard student_performance_dashboard.js --env TEST_TYPE=stress
+
+✅ SPIKE Test (sudden jump to 4k VUs)
+k6 run --out web-dashboard student_performance_dashboard.js --env TEST_TYPE=spike
+
+
+▶️ How to Run Each Test for teacher 
+
+✅ SMOKE Test (small check)
+k6 run --out web-dashboard teacher_performance_dashboard.js --env TEST_TYPE=smoke
+
+✅ LOAD Test (1k → 2k → 4k VUs)
+k6 run --out web-dashboard teacher_performance_dashboard.js --env TEST_TYPE=load
+
+✅ STRESS Test (push beyond capacity)
+k6 run --out web-dashboard teacher_performance_dashboard.js --env TEST_TYPE=stress
+
+✅ SPIKE Test (sudden jump to 4k VUs)
+k6 run --out web-dashboard teacher_performance_dashboard.js --env TEST_TYPE=spike
+
+
+
+📌 What This Script Covers
+Test Type	VUs	Purpose
+Smoke	10	Validate login + dashboard works
+Load	1k → 2k → 4k	Measure performance under expected load
+Stress	1k → 2k → 4k → 5k	Check system breaking point
+Spike	sudden 4k	Check sudden traffic burst
