@@ -12,6 +12,11 @@ k6 run --out web-dashboard student_performance_dashboard.js --env TEST_TYPE=stre
 ✅ SPIKE Test (sudden jump to 4k VUs)
 k6 run --out web-dashboard student_performance_dashboard.js --env TEST_TYPE=spike
 
+✅ Soak Test (sudden jump to 4k VUs)
+k6 run --out web-dashboard student_performance_dashboard.js --env TEST_TYPE=soak
+
+✅ Break point Test (sudden jump to 4k VUs)
+k6 run --out web-dashboard student_performance_dashboard.js --env TEST_TYPE=breakpoint
 
 ▶️ How to Run Each Test for teacher 
 
@@ -26,6 +31,13 @@ k6 run --out web-dashboard teacher_performance_dashboard.js --env TEST_TYPE=stre
 
 ✅ SPIKE Test (sudden jump to 4k VUs)
 k6 run --out web-dashboard teacher_performance_dashboard.js --env TEST_TYPE=spike
+
+✅ Soak Test (sudden jump to 4k VUs)
+k6 run --out web-dashboard teacher_performance_dashboard.js --env TEST_TYPE=soak
+
+✅ Break point Test (sudden jump to 4k VUs)
+k6 run --out web-dashboard teacher_performance_dashboard.js --env TEST_TYPE=breakpoint
+
 
 
 

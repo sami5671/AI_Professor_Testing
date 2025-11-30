@@ -53,6 +53,40 @@ export const options =
           http_req_duration: ["p(95)<200", "p(99)<400"],
         },
       }
+    : // -----------------------------------------
+    // 🛑 NEW — SOAK TEST (Long Duration Steady Load)
+    // -----------------------------------------
+    TEST_TYPE === "soak"
+    ? {
+        stages: [
+          { duration: "2m", target: 500 }, // Ramp up
+          { duration: "2h", target: 500 }, // Soak for hours
+          { duration: "2m", target: 0 }, // Ramp down
+        ],
+        thresholds: {
+          http_req_failed: ["rate<0.01"], // System must stay stable
+          http_req_duration: ["p(95)<300"], // Allow slightly higher latency
+        },
+      }
+    : // -----------------------------------------
+    // 🧨 NEW — BREAKPOINT TEST (Find Breaking Point)
+    // -----------------------------------------
+    TEST_TYPE === "breakpoint"
+    ? {
+        stages: [
+          { duration: "30s", target: 200 },
+          { duration: "30s", target: 400 },
+          { duration: "30s", target: 600 },
+          { duration: "30s", target: 800 },
+          { duration: "30s", target: 1000 },
+          { duration: "30s", target: 1500 },
+          { duration: "30s", target: 2000 },
+          { duration: "30s", target: 0 },
+        ],
+        thresholds: {
+          http_req_failed: ["rate<0.05"], // failure acceptable until break
+        },
+      }
     : {};
 
 // ------------------------
