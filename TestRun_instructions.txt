@@ -40,10 +40,9 @@ k6 run --out web-dashboard teacher_performance_dashboard.js --env TEST_TYPE=brea
 
 
 
-
-📌 What This Script Covers
-Test Type	VUs	Purpose
-Smoke	10	Validate login + dashboard works
-Load	1k → 2k → 4k	Measure performance under expected load
-Stress	1k → 2k → 4k → 5k	Check system breaking point
-Spike	sudden 4k	Check sudden traffic burst
+Smoke test. Verify the system functions with minimal load.
+“Average” load test. Discover how the system functions with typical traffic.
+Stress test. Discover how the system functions with the load of peak traffic.
+Spike test. Discover how the system functions with sudden and massive increases in traffic.
+Breakpoint test. Progressively ramp traffic to discover system breaking points.
+Soak test. Discover whether or when the system degrades under loads of longer duration.
