@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-
 # 📊 Performance Testing Report: Student & Teacher Performance Dashboards
 
 **Report Prepared By:** MD SAMI ALAM  
